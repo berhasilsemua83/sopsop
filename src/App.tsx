@@ -267,7 +267,7 @@ export default function App() {
                   >
                     Google AI Studio
                   </a>.{' '}
-                  Sangat aman: API Key hanya disimpan sementara di browser Anda dan dikirim langsung ke Google.
+                  Sangat aman: API Key hanya disimpan sementara di browser Anda dan dikirim langsung ke Google, Jika gagal/eror klik pertama buat coba ulangi lagi selagi API Key anda masih ada kuotanya tool tetap bisa di gunakan.
                 </p>
               </div>
 
