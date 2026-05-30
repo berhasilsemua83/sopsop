@@ -53,7 +53,7 @@ export const BLOG_REDIRECT_URL = 'https://www.akariu.my.id/p/shopee-specialist.h
 
 export const AFFILIATE_LINKS: string[] = [
   // === CONTOH FORMAT (hapus "//" dan ganti dengan link Anda) ===
-  https://s.shopee.co.id/50WITe1hfK
+  'https://s.shopee.co.id/50WITe1hfK',
 'https://s.shopee.co.id/7fX3ebpJiS',
 'https://s.shopee.co.id/1109iNsquh',
 'https://s.shopee.co.id/5flzGzQNan',
