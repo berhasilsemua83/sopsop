@@ -235,7 +235,7 @@ export default function App() {
             transition={{ delay: 0.2 }}
             className="text-slate-400 max-w-2xl mx-auto text-center text-lg sm:text-xl font-light"
           >
-            Generator skrip afiliasi Shopee Video & TikTok dengan konversi tinggi. 
+            Generator skrip afiliasi Shopee Video & TikTok dengan konversi tinggi(GRATIS,sbg apresiasi Author- akan muncul iklan saat klik generate🙏). 
           </motion.p>
         </div>
 
