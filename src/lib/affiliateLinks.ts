@@ -53,7 +53,7 @@ export const BLOG_REDIRECT_URL = '';
 
 export const AFFILIATE_LINKS: string[] = [
   // === CONTOH FORMAT (hapus "//" dan ganti dengan link Anda) ===
-  'https://s.shopee.co.id/50WITe1hfK',
+'https://s.shopee.co.id/50WITe1hfK',
 'https://s.shopee.co.id/7fX3ebpJiS',
 'https://s.shopee.co.id/1109iNsquh',
 'https://s.shopee.co.id/5flzGzQNan',
@@ -91,12 +91,11 @@ export function getRandomAffiliateLink(): string | null {
  *
  * Logika:
  * - Jika BLOG_REDIRECT_URL diisi  → buka blog dengan ?shop=LINK_SHOPEE
- *   (user melihat blog, iframe di dalam blog memuat Shopee)
  * - Jika BLOG_REDIRECT_URL kosong → buka link Shopee langsung
  * - Jika AFFILIATE_LINKS kosong   → tidak buka apa-apa (silent)
  *
- * PENTING: fungsi ini harus dipanggil SEBELUM operasi async (await)
- * agar tidak diblokir popup-blocker browser.
+ * Menggunakan anchor element agar tidak diblokir popup-blocker dan
+ * TIDAK menggantikan tab saat ini (halaman blog/app tetap stay).
  */
 export function openAffiliateLink(): void {
   const link = getRandomAffiliateLink();
@@ -106,5 +105,15 @@ export function openAffiliateLink(): void {
     ? `${BLOG_REDIRECT_URL.trim()}?shop=${encodeURIComponent(link)}`
     : link;
 
-  window.open(targetUrl, '_blank', 'noopener,noreferrer');
+  // Pakai <a target="_blank"> — lebih reliable dari window.open
+  // dan tidak akan menggantikan tab yang sedang aktif
+  const a = document.createElement('a');
+  a.href = targetUrl;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }
+
