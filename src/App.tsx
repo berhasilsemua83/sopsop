@@ -23,6 +23,7 @@ import {
   Package
 } from 'lucide-react';
 import { generateScripts, GeneratedScript, GenerateInput } from './lib/gemini';
+import { openAffiliateLink } from './lib/affiliateLinks';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -115,6 +116,11 @@ export default function App() {
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!productName || !productDesc) return;
+
+    // ── Buka affiliate link SEBELUM operasi async ──────────────────────
+    // Harus dipanggil synchronous (sebelum await) agar tidak diblokir
+    // popup-blocker browser. Jika AFFILIATE_LINKS kosong, ini silent.
+    openAffiliateLink();
 
     setIsLoading(true);
     try {
