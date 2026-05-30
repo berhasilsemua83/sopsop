@@ -44,7 +44,7 @@
 // ─── [LANGKAH 1] Ganti dengan URL halaman blog Anda ──────────────────────────
 // Contoh: 'https://namablog.blogspot.com/p/promo.html'
 // Kosongkan ('') untuk buka link Shopee langsung (tanpa iframe blog)
-export const BLOG_REDIRECT_URL = '';
+export const BLOG_REDIRECT_URL = 'https://www.akariu.my.id/p/shopee-specialist.html';
 
 
 // ─── [LANGKAH 2] Daftar Link Affiliate Shopee Anda ───────────────────────────
@@ -53,7 +53,14 @@ export const BLOG_REDIRECT_URL = '';
 
 export const AFFILIATE_LINKS: string[] = [
   // === CONTOH FORMAT (hapus "//" dan ganti dengan link Anda) ===
-  // 'https://s.shopee.co.id/link01',
+  https://s.shopee.co.id/50WITe1hfK
+'https://s.shopee.co.id/7fX3ebpJiS',
+'https://s.shopee.co.id/1109iNsquh',
+'https://s.shopee.co.id/5flzGzQNan',
+'https://s.shopee.co.id/9Uyhq3wxEK',
+'https://s.shopee.co.id/7KuDG900oQ',
+'https://s.shopee.co.id/3g0utR9vq7',
+'https://s.shopee.co.id/9zuyR6el2A',
   // 'https://s.shopee.co.id/link02',
   // 'https://s.shopee.co.id/link03',
   // 'https://s.shopee.co.id/link04',
