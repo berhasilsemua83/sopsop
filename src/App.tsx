@@ -117,11 +117,6 @@ export default function App() {
     e.preventDefault();
     if (!productName || !productDesc) return;
 
-    // ── Buka affiliate link SEBELUM operasi async ──────────────────────
-    // Harus dipanggil synchronous (sebelum await) agar tidak diblokir
-    // popup-blocker browser. Jika AFFILIATE_LINKS kosong, ini silent.
-    openAffiliateLink();
-
     setIsLoading(true);
     try {
       const input: GenerateInput = {
@@ -235,7 +230,7 @@ export default function App() {
             transition={{ delay: 0.2 }}
             className="text-slate-400 max-w-2xl mx-auto text-center text-lg sm:text-xl font-light"
           >
-            Generator skrip afiliasi Shopee Video & TikTok dengan konversi tinggi. GRATIS, sbg apresiasi Author- akan muncul iklan saat klik generate🙏. 
+            Generator skrip afiliasi Shopee Video & TikTok dengan konversi tinggi. 
           </motion.p>
         </div>
 
@@ -439,6 +434,11 @@ export default function App() {
               <button
                 type="submit"
                 disabled={isLoading || !productName || !productDesc}
+                onClick={() => {
+                  // Direct user click = browser izinkan buka tab baru
+                  // Hanya buka jika form valid (tidak loading & ada input)
+                  if (!isLoading && productName && productDesc) openAffiliateLink();
+                }}
                 className="w-full flex items-center justify-center space-x-2 rounded-2xl bg-gradient-to-r from-orange-600 to-red-600 px-6 py-4 mt-6 font-semibold text-white hover:from-orange-500 hover:to-red-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-[0_10px_40px_-10px_rgba(249,115,22,0.5)] active:scale-[0.98] border border-orange-400/20"
               >
                 {isLoading ? (
